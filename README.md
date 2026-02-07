@@ -132,6 +132,16 @@ webapp/
 
 ## 🚀 Quraşdırma və İstifadə
 
+### Render.com Deployment
+**📘 Ətraflı deployment guide**: [DEPLOYMENT.md](DEPLOYMENT.md)
+
+**Qısa addımlar**:
+1. Render.com-da PostgreSQL database yarat
+2. `database.sql` icra et
+3. GitHub repository-ni Render-ə bağla
+4. Environment variables əlavə et
+5. Deploy et
+
 ### 1. Dependencies Quraşdırma
 ```bash
 npm install
