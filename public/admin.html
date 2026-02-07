@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Paneli</title>
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+    <div class="admin-header">
+        <div class="shield-icon">🛡️</div>
+        <h1>Admin Paneli</h1>
+        <button id="logoutBtn" class="btn-logout">Çıxış</button>
+    </div>
+    
+    <div class="admin-container">
+        <nav class="admin-nav">
+            <button class="nav-btn active" data-tab="dashboard">⚠️ Təhlükəli Hesablar</button>
+            <button class="nav-btn" data-tab="users">👥 Bütün İstifadəçilər</button>
+            <button class="nav-btn" data-tab="daily-topic">📋 Günün Mövzusu</button>
+            <button class="nav-btn" data-tab="filter">🔍 Filtr Sözləri</button>
+            <button class="nav-btn" data-tab="rules">📜 Qaydalar</button>
+            <button class="nav-btn" data-tab="about">ℹ️ Haqqında</button>
+            <button class="nav-btn" data-tab="messages">⏱️ Mesaj Silmə</button>
+            <button class="nav-btn super-only" data-tab="admins" style="display:none">👨‍💼 Alt Adminlər</button>
+        </nav>
+        
+        <main class="admin-content">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <h2>Təhlükəli Hesablar</h2>
+                <p>⚠️ Şikayətləri 8+ olan hesablar</p>
+                <div id="reportedUsersList"></div>
+            </div>
+            
+            <!-- Users Tab -->
+            <div id="users" class="tab-content">
+                <h2>Bütün İstifadəçilər (<span id="totalUsers">0</span>)</h2>
+                <div id="usersList"></div>
+            </div>
+            
+            <!-- Daily Topic Tab -->
+            <div id="daily-topic" class="tab-content">
+                <h2>Günün Mövzusu</h2>
+                <textarea id="dailyTopicInput" rows="3" placeholder="Günün mövzusunu daxil edin..."></textarea>
+                <button id="saveDailyTopic" class="btn-save">Yadda saxla</button>
+            </div>
+            
+            <!-- Filter Tab -->
+            <div id="filter" class="tab-content">
+                <h2>Filtr Sözləri</h2>
+                <p>Sözləri vergül ilə ayırın (məs: söz1, söz2, söz3)</p>
+                <textarea id="filterWordsInput" rows="5" placeholder="Filtr sözlərini daxil edin..."></textarea>
+                <button id="saveFilterWords" class="btn-save">Yadda saxla</button>
+            </div>
+            
+            <!-- Rules Tab -->
+            <div id="rules" class="tab-content">
+                <h2>Qaydalar</h2>
+                <textarea id="rulesInput" rows="10" placeholder="Qaydaları daxil edin..."></textarea>
+                <button id="saveRules" class="btn-save">Yadda saxla</button>
+            </div>
+            
+            <!-- About Tab -->
+            <div id="about" class="tab-content">
+                <h2>Haqqında</h2>
+                <textarea id="aboutInput" rows="10" placeholder="Haqqında məlumatı daxil edin..."></textarea>
+                <button id="saveAbout" class="btn-save">Yadda saxla</button>
+            </div>
+            
+            <!-- Messages Tab -->
+            <div id="messages" class="tab-content">
+                <h2>Mesaj Silmə Vaxtı</h2>
+                
+                <div class="message-settings">
+                    <h3>Qrup Chatları</h3>
+                    <div class="time-selector">
+                        <input type="number" id="groupTime" min="1" placeholder="Vaxt">
+                        <select id="groupUnit">
+                            <option value="minutes">Dəqiqə</option>
+                            <option value="hours">Saat</option>
+                        </select>
+                    </div>
+                    <button id="saveGroupTime" class="btn-save">Yadda saxla</button>
+                </div>
+                
+                <div class="message-settings">
+                    <h3>Şəxsi Chatlar</h3>
+                    <div class="time-selector">
+                        <input type="number" id="privateTime" min="1" placeholder="Vaxt">
+                        <select id="privateUnit">
+                            <option value="minutes">Dəqiqə</option>
+                            <option value="hours">Saat</option>
+                        </select>
+                    </div>
+                    <button id="savePrivateTime" class="btn-save">Yadda saxla</button>
+                </div>
+            </div>
+            
+            <!-- Admins Tab (Super Admin Only) -->
+            <div id="admins" class="tab-content">
+                <h2>Alt Adminlər</h2>
+                
+                <div class="create-admin">
+                    <h3>Yeni Admin Yarat</h3>
+                    <input type="text" id="newAdminUsername" placeholder="İstifadəçi adı">
+                    <input type="password" id="newAdminPassword" placeholder="Şifrə">
+                    <button id="createAdmin" class="btn-save">Yarat</button>
+                </div>
+                
+                <div id="adminsList"></div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="/js/admin.js"></script>
+</body>
+</html>

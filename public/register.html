@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSU Chat - Qeydiyyat</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card register-card">
+            <div class="shield-icon">🛡️</div>
+            <h1>Qeydiyyat</h1>
+            
+            <form id="registerForm">
+                <input type="text" id="fullName" placeholder="Ad Soyad" required>
+                
+                <input type="email" id="email" placeholder="Email" required>
+                <small class="email-hint">Email @bsu.edu.az ilə bitməlidir</small>
+                
+                <input type="tel" id="phone" placeholder="+994" pattern="\+994[0-9]{9}" required maxlength="13">
+                <small class="phone-hint">Format: +994XXXXXXXXX</small>
+                
+                <select id="faculty" required>
+                    <option value="">Fakültə seçin</option>
+                    <option>Mexanika-riyaziyyat fakültəsi</option>
+                    <option>Tətbiqi riyaziyyat və kibernetika fakültəsi</option>
+                    <option>Fizika fakültəsi</option>
+                    <option>Kimya fakültəsi</option>
+                    <option>Biologiya fakültəsi</option>
+                    <option>Ekologiya və torpaqşünaslıq fakültəsi</option>
+                    <option>Coğrafiya fakültəsi</option>
+                    <option>Geologiya fakültəsi</option>
+                    <option>Filologiya fakültəsi</option>
+                    <option>Tarix fakültəsi</option>
+                    <option>Beynəlxalq münasibətlər və iqtisadiyyat fakültəsi</option>
+                    <option>Hüquq fakültəsi</option>
+                    <option>Jurnalistika fakültəsi</option>
+                    <option>İnformasiya və sənəd menecmenti fakültəsi</option>
+                    <option>Şərqşünaslıq fakültəsi</option>
+                    <option>Sosial elmlər və psixologiya fakültəsi</option>
+                </select>
+                
+                <select id="degree" required>
+                    <option value="">Dərəcə seçin</option>
+                    <option>Bakalavr</option>
+                    <option>Magistr</option>
+                    <option>Doktorantura</option>
+                </select>
+                
+                <select id="course" required>
+                    <option value="">Kurs seçin</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select>
+                
+                <div class="avatar-selector">
+                    <label>Avatar seçin:</label>
+                    <div id="avatarGrid" class="avatar-grid"></div>
+                </div>
+                
+                <input type="password" id="password" placeholder="Şifrə" required minlength="6">
+                <input type="password" id="confirmPassword" placeholder="Şifrəni təsdiqlə" required minlength="6">
+                
+                <button type="button" id="nextBtn" class="btn-login">Növbəti</button>
+                <button type="button" class="btn-back" onclick="window.location.href='/'">Geri</button>
+            </form>
+            
+            <!-- Verification Modal -->
+            <div id="verificationModal" class="modal">
+                <div class="modal-content">
+                    <h2>Doğrulama</h2>
+                    <p>Minimum 2 sual düzgün cavablandırılmalıdır</p>
+                    <div id="questions"></div>
+                    <button type="button" id="submitVerification" class="btn-login">Qeydiyyatı tamamla</button>
+                </div>
+            </div>
+            
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+    </div>
+    
+    <script src="/js/register.js"></script>
+</body>
+</html>

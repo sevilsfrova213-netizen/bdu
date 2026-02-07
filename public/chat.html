@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSU Chat</title>
+    <link rel="stylesheet" href="/css/chat.css">
+</head>
+<body>
+    <div class="chat-header">
+        <div class="header-left">
+            <div class="logo-section">
+                <span class="shield-icon">🛡️</span>
+                <h1>BSU Chat</h1>
+            </div>
+            <div id="dailyTopic" class="daily-topic"></div>
+        </div>
+        <div class="header-right">
+            <button id="rulesBtn" class="header-btn">📜 Qaydalar</button>
+            <button id="aboutBtn" class="header-btn">ℹ️ Haqqında</button>
+            <button id="logoutBtn" class="header-btn">🚪 Çıxış</button>
+        </div>
+    </div>
+    
+    <div class="chat-container">
+        <!-- Faculty List -->
+        <div class="faculty-list">
+            <h2>Fakültə Otaqları</h2>
+            <div id="facultyButtons"></div>
+        </div>
+        
+        <!-- Chat Area -->
+        <div class="chat-area">
+            <div class="chat-header-info">
+                <h2 id="currentRoom">Fakültə seçin</h2>
+            </div>
+            
+            <div id="messagesContainer" class="messages-container"></div>
+            
+            <div class="message-input-container">
+                <textarea id="messageInput" placeholder="Mesajınızı yazın..." rows="1"></textarea>
+                <button id="sendBtn" disabled>Göndər</button>
+            </div>
+        </div>
+        
+        <!-- Online Users / Private Chats -->
+        <div class="users-list">
+            <h2>İstifadəçilər</h2>
+            <div id="onlineUsers"></div>
+        </div>
+    </div>
+    
+    <!-- Modals -->
+    <div id="rulesModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>📜 Qaydalar</h2>
+            <div id="rulesContent"></div>
+        </div>
+    </div>
+    
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>ℹ️ Haqqında</h2>
+            <div id="aboutContent"></div>
+        </div>
+    </div>
+    
+    <div id="privateChat Modal" class="modal">
+        <div class="modal-content private-chat">
+            <span class="close">&times;</span>
+            <h2 id="privateChatUser"></h2>
+            <div id="privateChatMessages" class="messages-container"></div>
+            <div class="message-input-container">
+                <textarea id="privateChatInput" placeholder="Mesajınızı yazın..." rows="1"></textarea>
+                <button id="privateSendBtn">Göndər</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Context Menu -->
+    <div id="contextMenu" class="context-menu">
+        <div class="context-item" data-action="private">💬 Şəxsi mesaj</div>
+        <div class="context-item" data-action="block">🚫 Əngəllə</div>
+        <div class="context-item" data-action="report">⚠️ Şikayət et</div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
+</body>
+</html>
