@@ -32,6 +32,13 @@ BSU Chat - 16 fakültə üçün ayrı-ayrılıqda chat otaqları, şəxsi mesajl
 3. Qaydalar və Haqqında bölmələrini doldurun
 4. Test istifadəçi yaradın
 
+## ✅ Son Yeniləmələr (v1.1)
+
+- ✅ **Avatar Sistemı Düzəldildi**: PNG əvəzinə düzgün SVG format (27 rəngli avatar)
+- ✅ **Database Error Handling**: Database bağlı olmadıqda "memory-only mode"
+- ✅ **Optimizasiya**: Serverin performansı yaxşılaşdırıldı
+- ✅ **Error Messages**: İstifadəçi dostu error mesajları əlavə edildi
+
 ## 🚀 URLs
 
 ### Development (Sandbox)
