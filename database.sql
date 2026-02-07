@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS settings (
 
 -- Insert super admin
 INSERT INTO admin_users (username, password_hash, is_super_admin) 
-VALUES ('618ursamajor618', '$2b$10$YourHashedPasswordHere', TRUE)
+VALUES ('618ursamajor618', '$2b$10$PqzxDwrW3L.hQNuxuxoo8u1WgEKYtr8amrtlshhY/G4QNMW7Tsv/G', TRUE)
 ON CONFLICT (username) DO NOTHING;
 
 -- Insert default settings
