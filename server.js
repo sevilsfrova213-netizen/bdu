@@ -12,6 +12,7 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 // Database connection
+let dbConnected = false;
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
@@ -20,9 +21,12 @@ const pool = new Pool({
 // Test database connection
 pool.connect((err, client, release) => {
     if (err) {
-        console.error('Database connection error:', err.stack);
+        console.error('⚠️ Database connection error:', err.message);
+        console.log('⚙️ Running in memory-only mode (no database persistence)');
+        dbConnected = false;
     } else {
         console.log('✅ Database connected successfully');
+        dbConnected = true;
         release();
     }
 });
@@ -115,6 +119,14 @@ function getBakuTime() {
     return new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Baku' }));
 }
 
+// Helper function: Safe database query
+async function safeQuery(queryText, params = []) {
+    if (!dbConnected) {
+        throw new Error('Database not connected');
+    }
+    return await pool.query(queryText, params);
+}
+
 // API: Get verification questions
 app.get('/api/verification-questions', (req, res) => {
     const questions = getRandomQuestions();
@@ -124,6 +136,10 @@ app.get('/api/verification-questions', (req, res) => {
 // API: Register
 app.post('/api/register', async (req, res) => {
     try {
+        if (!dbConnected) {
+            return res.status(503).json({ error: 'Database xidməti hazırda əlçatan deyil' });
+        }
+        
         const { email, phone, password, full_name, faculty, degree, course, avatar_id, verification } = req.body;
         
         // Validate email format
@@ -179,6 +195,10 @@ app.post('/api/register', async (req, res) => {
 // API: Login
 app.post('/api/login', async (req, res) => {
     try {
+        if (!dbConnected) {
+            return res.status(503).json({ error: 'Database xidməti hazırda əlçatan deyil' });
+        }
+        
         const { email, password } = req.body;
         
         const result = await pool.query(
@@ -647,13 +667,16 @@ io.on('connection', (socket) => {
 
 // Auto-delete messages based on admin settings
 setInterval(async () => {
+    // Skip if database not connected
+    if (!dbConnected) return;
+    
     try {
         const groupSettings = await pool.query(
-            "SELECT value FROM settings WHERE key IN ('group_message_delete_time', 'group_message_delete_unit')"
+            "SELECT key, value FROM settings WHERE key IN ('group_message_delete_time', 'group_message_delete_unit')"
         );
         
         const privateSettings = await pool.query(
-            "SELECT value FROM settings WHERE key IN ('private_message_delete_time', 'private_message_delete_unit')"
+            "SELECT key, value FROM settings WHERE key IN ('private_message_delete_time', 'private_message_delete_unit')"
         );
         
         const groupTime = parseInt(groupSettings.rows.find(r => r.key === 'group_message_delete_time')?.value || 60);

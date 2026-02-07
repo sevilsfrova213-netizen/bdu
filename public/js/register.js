@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create avatar grid (27 avatars)
     for (let i = 1; i <= 27; i++) {
         const avatarImg = document.createElement('img');
-        avatarImg.src = `/images/avatar-${i}.png`;
+        avatarImg.src = `/images/avatar-${i}.svg`;
         avatarImg.alt = `Avatar ${i}`;
         avatarImg.className = 'avatar-option';
         avatarImg.dataset.id = i;

@@ -194,7 +194,7 @@ function appendMessage(message, autoScroll = true) {
     });
     
     messageDiv.innerHTML = `
-        <img src="/images/avatar-${message.sender.avatar_id}.png" alt="Avatar" class="message-avatar">
+        <img src="/images/avatar-${message.sender.avatar_id}.svg" alt="Avatar" class="message-avatar">
         <div class="message-content">
             <div class="message-header">
                 <span class="message-sender">${message.sender.full_name}</span>
@@ -255,7 +255,7 @@ function appendPrivateMessage(message, autoScroll = true) {
     });
     
     messageDiv.innerHTML = `
-        <img src="/images/avatar-${message.sender.avatar_id}.png" alt="Avatar" class="message-avatar">
+        <img src="/images/avatar-${message.sender.avatar_id}.svg" alt="Avatar" class="message-avatar">
         <div class="message-content">
             <div class="message-text-wrapper">
                 <div class="message-text">${escapeHtml(message.message_text)}</div>
