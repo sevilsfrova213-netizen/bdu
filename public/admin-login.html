@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSU Chat - Admin Girişi</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="shield-icon">🛡️</div>
+            <h1>Admin Paneli</h1>
+            
+            <form id="loginForm">
+                <input type="text" id="identifier" placeholder="İstifadəçi adı" required>
+                <input type="password" id="password" placeholder="Şifrə" required>
+                <button type="submit" class="btn-login">Daxil ol</button>
+                <button type="button" class="btn-back" onclick="window.location.href='/'">Geri</button>
+            </form>
+            
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+    </div>
+    
+    <script src="/js/login.js"></script>
+</body>
+</html>

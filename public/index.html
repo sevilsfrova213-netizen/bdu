@@ -3,27 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSU Chat - Giriş</title>
+    <title>BSU Chat</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="login-page">
     <div class="login-container">
         <div class="login-card">
             <div class="shield-icon">🛡️</div>
-            <h1>Admin Paneli</h1>
+            <h1>BSU Chat</h1>
+            <p style="color: #666; margin-bottom: 20px;">Bakı Dövlət Universiteti</p>
             
-            <form id="loginForm">
-                <input type="text" id="identifier" placeholder="İstifadəçi adı və ya email" required>
-                <input type="password" id="password" placeholder="Şifrə" required>
-                <button type="submit" class="btn-login">Daxil ol</button>
-                <button type="button" class="btn-back" onclick="window.location.href='/'">Geri</button>
-            </form>
+            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <button type="button" class="btn-login" onclick="window.location.href='/login.html'">İstifadəçi Girişi</button>
+                <button type="button" class="btn-login" onclick="window.location.href='/register.html'">Qeydiyyat</button>
+            </div>
             
-            <div id="errorMessage" class="error-message"></div>
+            <button type="button" class="btn-back" onclick="window.location.href='/admin-login.html'">Admin Girişi</button>
         </div>
     </div>
-    
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/js/login.js"></script>
 </body>
 </html>

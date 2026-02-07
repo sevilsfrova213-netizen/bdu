@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorMessage = document.getElementById('errorMessage');
     
     // Check if current page is admin login
-    const isAdminLogin = window.location.pathname.includes('admin') || document.querySelector('h1').textContent.includes('Admin');
+    const isAdminLogin = window.location.pathname.includes('admin-login');
     
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
