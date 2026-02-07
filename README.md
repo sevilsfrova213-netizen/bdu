@@ -6,6 +6,42 @@ Bakı Dövlət Universiteti tələbələri üçün real-time chat platforması.
 
 BSU Chat - 16 fakültə üçün ayrı-ayrılıqda chat otaqları, şəxsi mesajlaşma, admin paneli və çoxsaylı təhlükəsizlik funksiyaları olan müasir mesajlaşma platformasıdır.
 
+## ⚠️ VACIB QEYDLƏR
+
+### Database Konfiqurasiyası
+- Database bağlantısı üçün `.env` faylında `DATABASE_URL` parametri düzgün olmalıdır
+- Render.com-da database yaratdıqdan sonra düzgün credentials istifadə edin
+- İlk dəfə deploy edəndə `database.sql` faylını Render PostgreSQL-də icra edin
+
+### Render.com Deploy
+1. GitHub repository-ni Render.com-a bağlayın
+2. **Web Service** yaradın (Node.js)
+3. **Build Command**: `npm install`
+4. **Start Command**: `npm start`
+5. Environment Variables əlavə edin:
+   - `DATABASE_URL`: PostgreSQL connection string
+   - `SESSION_SECRET`: Təsadüfi secure key
+   - `NODE_ENV`: production
+6. Database.sql faylını Render PostgreSQL console-da icra edin
+
+### İlk İstifadə
+1. Admin panelə giriş:
+   - Username: `618ursamajor618`
+   - Password: `majorursa618`
+2. Database table-lərini yaratmaq üçün `database.sql` icra edin
+3. Qaydalar və Haqqında bölmələrini doldurun
+4. Test istifadəçi yaradın
+
+## 🚀 URLs
+
+### Development (Sandbox)
+- **Frontend**: https://3000-iuap7mjbz5d7mh1cxzc6u-ad490db5.sandbox.novita.ai/
+- **Admin Panel**: https://3000-iuap7mjbz5d7mh1cxzc6u-ad490db5.sandbox.novita.ai/admin-login.html
+- **GitHub**: https://github.com/sevilsfrova213-netizen/bdu
+
+### Production (Render.com)
+Deploy etdikdən sonra buraya əlavə olunacaq
+
 ## ✨ Əsas Xüsusiyyətlər
 
 ### İstifadəçi Funksiyaları
@@ -45,7 +81,15 @@ BSU Chat - 16 fakültə üçün ayrı-ayrılıqda chat otaqları, şəxsi mesajl
 - **Auto-delete Messages**: Admin tərəfindən müəyyən edilmiş vaxtdan sonra avtomatik silinmə
 - **Responsive Design**: Mobil və desktop uyğun dizayn
 
-## 🏗️ Texnologiyalar
+## 🚀 URLs
+
+### Development (Sandbox)
+- **Frontend**: https://3000-iuap7mjbz5d7mh1cxzc6u-ad490db5.sandbox.novita.ai/
+- **Admin Panel**: https://3000-iuap7mjbz5d7mh1cxzc6u-ad490db5.sandbox.novita.ai/admin-login.html
+- **GitHub**: https://github.com/sevilsfrova213-netizen/bdu
+
+### Production (Render.com)
+Deploy etdikdən sonra buraya əlavə olunacaq
 
 - **Backend**: Node.js, Express.js
 - **Real-time**: Socket.IO
